@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title></title>
+	<meta charset='utf-8'>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+	}
+	#container{
+		width: 400px;
+		height: 200px;
+		margin: 50px auto;
+	}
+	#tab{
+		height: 30px;
+	}
+	#tab li{
+		width: 120px;
+		height: 30px;
+		margin-right: 10px;
+		background: #ccc;
+		float: left;
+		text-align: center;
+		line-height: 30px;
+		cursor: pointer;
+	}
+	#tab li.selected{
+		background: #000;
+		color: #fff;
+
+	}
+	#content{
+		height: 170px;
+		background: #ccc;
+		border-top: 1px solid black;
+	}
+	#content div{
+		display: none;
+	}
+	#content div.selected{
+		display: block;
+	}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="tab">
+			<li class="selected">javascript</li>
+			<li>jquery</li>
+			<li>css</li>
+		</ul>
+		<div id="content">
+			<div class="selected">1111</div>
+			<div>2222</div>
+			<div>3333</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	    var oUl = document.getElementById('tab');
+	    var aLi = oUl.getElementsByTagName('li');
+	    var oDiv = document.getElementById('content');
+	    var aDiv = oDiv.getElementsByTagName('div');
+	    for(var i=0;i<aLi.length;i++){
+	    	aLi[i].index = i;
+	    	aLi[i].onclick = function(){
+	    		for(var i=0;i<aLi.length;i++){
+	    			aLi[i].className = "";
+	    			aDiv[i].className = "";
+	    		}
+	    		this.className = 'selected';
+	    		aDiv[this.index].className = 'selected';
+	    	};
+	    }
+	</script>
+</body>
+</html>
